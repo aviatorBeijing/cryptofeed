@@ -63,7 +63,7 @@ def binance_jersey_pairs():
 
 
 def binance_futures_pairs():
-    return _binance_pairs('https://fapi.binance.com/fapi/v1/exchangeInfo', BINANCE_FUTURES)
+    return _binance_pairs('https://dapi.binance.com/dapi/v1/exchangeInfo', BINANCE_FUTURES)
 
 
 def bitfinex_pairs():

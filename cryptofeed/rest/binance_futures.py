@@ -26,7 +26,7 @@ LOG = logging.getLogger('rest')
 
 class BinanceFutures(API):
     ID = BINANCE_FUTURES
-    api = "https://fapi.binance.com/fapi/v1/"
+    api = "https://dapi.binance.com/dapi/v1/"
 
     def _get(self, endpoint, retry, retry_wait):
         @request_retry(self.ID, retry, retry_wait)
