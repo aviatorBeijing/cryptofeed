@@ -65,7 +65,7 @@ def binance_jersey_pairs():
 def binance_futures_pairs():
     fpairs = {}
     inverse_pairs = _binance_pairs('https://dapi.binance.com/dapi/v1/exchangeInfo', BINANCE_FUTURES)
-    linear_pairs = _binance_pairs('https://fapi.binance.com/dapi/v1/exchangeInfo', BINANCE_FUTURES)
+    linear_pairs = _binance_pairs('https://fapi.binance.com/fapi/v1/exchangeInfo', BINANCE_FUTURES)
     fpairs.update( inverse_pairs)
     fpairs.update( linear_pairs)
     return fpairs

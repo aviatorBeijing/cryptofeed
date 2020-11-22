@@ -18,10 +18,14 @@ LOG = logging.getLogger('feedhandler')
 class BinanceFutures(Binance):
     id = BINANCE_FUTURES
 
-    def __init__(self, pairs=None, channels=None, callbacks=None, depth=1000, **kwargs):
+    def __init__(self, is_linear_contract=False, pairs=None, channels=None, callbacks=None, depth=1000, **kwargs):
         super().__init__(pairs=pairs, channels=channels, callbacks=callbacks, depth=depth, **kwargs)
-        self.ws_endpoint = 'wss://dstream.binance.com'
-        self.rest_endpoint = 'https://dapi.binance.com/dapi/v1'
+        if is_linear_contract:
+            self.ws_endpoint = 'wss://fstream.binance.com'
+            self.rest_endpoint = 'https://fapi.binance.com/fapi/v1'
+        else:
+            self.ws_endpoint = 'wss://dstream.binance.com'
+            self.rest_endpoint = 'https://dapi.binance.com/dapi/v1'
         self.address = self._address()
 
     def _address(self):
