@@ -63,8 +63,12 @@ def binance_jersey_pairs():
 
 
 def binance_futures_pairs():
-    return _binance_pairs('https://dapi.binance.com/dapi/v1/exchangeInfo', BINANCE_FUTURES)
-
+    fpairs = {}
+    inverse_pairs = _binance_pairs('https://dapi.binance.com/dapi/v1/exchangeInfo', BINANCE_FUTURES)
+    linear_pairs = _binance_pairs('https://fapi.binance.com/dapi/v1/exchangeInfo', BINANCE_FUTURES)
+    fpairs.update( inverse_pairs)
+    fpairs.update( linear_pairs)
+    return fpairs
 
 def bitfinex_pairs():
     ret = {}
